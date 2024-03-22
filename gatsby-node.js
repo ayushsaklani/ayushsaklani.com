@@ -40,7 +40,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`);
     return;
   }
-
+/*
   // Create post detail pages
   const posts = result.data.postsRemark.edges;
 
@@ -64,6 +64,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       },
     });
   });
+*/
 };
 
 // https://www.gatsbyjs.org/docs/node-apis/#onCreateWebpackConfig

@@ -7,7 +7,7 @@ module.exports = {
       'Ayush Saklani is a software engineer who specializes in building end to end machine learning application experiences.',
     siteUrl: 'https://ayushsaklani.com', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
-    twitterUsername: '@ayushsaklani',
+    twitterUsername: '@bchiang7',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -152,7 +152,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: 'UA-45666519-2',
+        trackingId: 'G-38Y6K7WYZ0',
       },
     },
   ],

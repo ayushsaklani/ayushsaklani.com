@@ -69,7 +69,7 @@ const Hero = () => {
       <p>
         I’m a software engineer specializing in training and building exceptional machine learning
         models. Currently, I am pursuing Master of Science in Electrical and Computer Engineering at
-        t{' '}
+        {' '}
         <a href="https://eecs.umich.edu/" target="_blank" rel="noreferrer">
           The University of Michigan
         </a>

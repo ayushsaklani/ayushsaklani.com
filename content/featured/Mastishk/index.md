@@ -8,6 +8,8 @@ cta: ''
 tech:
   - Pytorch
   - Python
+  - VecorDB
+  - RAG
   - NextJs
 ---
 

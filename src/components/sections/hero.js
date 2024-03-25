@@ -81,7 +81,7 @@ const Hero = () => {
     <>
       <a
         className="email-link"
-        href="https:/github.com/ayushsaklani"
+        href="https://www.github.com/ayushsaklani"
         target="_blank"
         rel="noreferrer">
         Check out my Projects!

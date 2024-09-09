@@ -30,6 +30,8 @@ const ImageHover: React.FC<ImageHoverProps> = ({src, srcSmall, alt }) => {
 
       onMouseEnter={() => { setisHovered(true); }}
       onMouseLeave={() => { setisHovered(false); }}
+      onTouchStart={() => { setisHovered(true); }}
+      onTouchEnd={() => { setisHovered(false); }}
 
       transition={{ duration: 1 }}
       variants={{
@@ -40,8 +42,8 @@ const ImageHover: React.FC<ImageHoverProps> = ({src, srcSmall, alt }) => {
         },
         animate: {
           opacity: 1,
-          width: "var(--w-to)",
-          height: "var(--h-to)",
+          width: isHovered?"var(--w-hover)":"var(--w-to)",
+          height: isHovered?"var(--h-hover)":"var(--h-to)",
 
         },
         hover: {
@@ -53,12 +55,13 @@ const ImageHover: React.FC<ImageHoverProps> = ({src, srcSmall, alt }) => {
       animate='animate'
       exit='initial'
       whileHover='hover'
+      whileTap='hover'
 
       className="z-[150] relative flex justify-center items-center mx-auto my-auto  overflow-hidden
-  [--w-from:30rem] [--h-from:30rem] sm:[--w-from:35rem] sm:[--h-from:40rem] 
-  [--w-to:20rem] [--h-to:22rem]   sm:[--w-to:25rem] sm:[--h-to:30rem] 
-  [--w-hover:32rem] sm:[--w-hover:32rem] md:[--w-hover:48rem] lg:[--w-hover:64rem] xl:[--w-hover:80rem]
-  [--h-hover:18rem] sm:[--h-hover:18rem] md:[--h-hover:27rem] lg:[--h-hover:36rem] xl:[--h-hover:45rem]  
+      [--w-from:30rem] [--h-from:30rem] sm:[--w-from:35rem] md:[--h-from:40rem] 
+      [--w-to:20rem] [--h-to:22rem]   sm:[--w-to:25rem] md:[--h-to:27rem] 
+      [--w-hover:32rem] sm:[--w-hover:32rem] md:[--w-hover:32rem] lg:[--w-hover:48rem] xl:[--w-hover:64rem]
+      [--h-hover:15rem] sm:[--h-hover:18rem] md:[--h-hover:18rem] lg:[--h-hover:27rem] xl:[--h-hover:36rem]  
   "
     >
       {/* Main Image */}

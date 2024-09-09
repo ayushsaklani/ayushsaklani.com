@@ -9,9 +9,9 @@ export function HomePage() {
   return (
 <div className='relative flex w-full h-full'>
 <div className="relative w-full  m-10 mb-[16rem] 
-                bg-green-100 ">
+                ">
     <div className="absolute  z-[150] pointer-events-auto 
-                  bg-green-100 w-full h-full
+                   w-full h-full
                   flex justify-center content-center
                   ">
       <ImageHover src='/images/me.jpg' srcSmall="/images/me_small.jpg"  alt='photo' />

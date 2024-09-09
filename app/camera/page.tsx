@@ -11,7 +11,7 @@ export default async function CameraPage() {
     let images = await data.json()
     images = images.data.attributes.images.data 
   return (
-    <div className="relative w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
+    <div className="relative w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-5 pt-10 pb-[8rem] mt-10 mb-10">
       {images.map((image:imageListType) => (
       
     <div key={image.attributes.name} className="relative grid grid-cols-1 w-full">

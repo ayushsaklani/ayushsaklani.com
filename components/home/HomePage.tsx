@@ -1,11 +1,31 @@
 "use client";
 
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { BackgroundBeams } from "../ui/BackgroundBeams";
 import GradualSpacing from "@/components/magicui/gradual-spacing";
-import ImageHover from "../imageHoverContainer/ImageHover";
+import ImageHover from "@/components/imageHoverContainer/ImageHover";
+import RealTimeClock from "@/components/clock/RealTimeClock";
 
 export function HomePage() {
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      setWindowHeight(window.innerHeight);
+    };
+
+    // Attach event listener
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
 <div className='relative flex w-full h-full'>
 <div className="relative w-full  m-10 mb-[16rem] 
@@ -36,6 +56,17 @@ export function HomePage() {
       font-bold tracking-[-0.1em] text-gray-300  md:leading-[5rem] z-[10]"
       text="Saklani"
   />
+  
+
+ 
+  </div>
+   {/* WxH */}
+   <div className="absolute bottom-8 left-8 z-[250] text-[1rem]">
+    {windowWidth+"X"+ windowHeight}
+  </div>
+  {/* Time  */}
+  <div className="absolute top-8 left-8 z-[250] text-[1rem]">
+    <RealTimeClock/>
   </div>
   <BackgroundBeams className="w-full h-full z-0"/>
 </div>

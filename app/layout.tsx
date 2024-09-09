@@ -86,7 +86,7 @@ export default function RootLayout({
   ];
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen w-screen max-h-[calc(100dvh)] max-w-[calc(100dwh)] mx-auto bg-slate-900 `}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen w-screen max-h-[calc(100dvh)] max-w-[calc(100dwh)] mx-auto bg-slate-900 text-slate-200`}
       >
         <div  className="realtive h-full w-full max-w-[2000px] mx-auto ">
 

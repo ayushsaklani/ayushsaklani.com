@@ -1,17 +1,20 @@
 "use client";
-
 import React,{useState,useEffect} from "react";
 import { BackgroundBeams } from "../ui/BackgroundBeams";
 import GradualSpacing from "@/components/magicui/gradual-spacing";
 import ImageHover from "@/components/imageHoverContainer/ImageHover";
 import RealTimeClock from "@/components/clock/RealTimeClock";
 
+
 export function HomePage() {
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+  const [windowWidth, setWindowWidth] = useState(0);
+  const [windowHeight, setWindowHeight] = useState(0);
 
   useEffect(() => {
+
+    setWindowWidth(window.innerHeight);
+    setWindowHeight(window.innerHeight);
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
       setWindowHeight(window.innerHeight);

@@ -14,7 +14,7 @@ export default async function ProjectPage() {
     projects = projects.data
   console.log(projects);
   return (
-    <div className="relative w-full grid grid-cols-1 gap-5 p-5">
+    <div className="relative w-full grid grid-cols-1 gap-5 px-5 pt-10 mt-10 pb-[8rem]">
       {projects.map((project:ProjectType) => (
         <WobbleCard
         key={project.attributes.name}

@@ -17,13 +17,13 @@ export function HomePage() {
       <ImageHover src='/images/me.jpg' srcSmall="/images/me_small.jpg"  alt='photo' />
     </div>
 </div>
-  <div className="absolute grid grid-cols-1 md:grid-cols-2  pointer-events-none 
+  <div className="absolute grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 pointer-events-none 
     bottom-[1rem] md:bottom-[7rem] lg:bottom-[9rem]
     left-[1rem] md:left-[2rem] z-10
  ">
  <GradualSpacing
       className="realtive font-display text-left  
-      text-[8rem] md:text-[14rem]
+      text-[7.5rem]  lg:text-[13rem] 
       mb-[-6rem] md:mb-[0rem]
       font-bold tracking-[-0.1em] text-gray-300  md:leading-[5rem] z-[11]"
       text="Ayush"
@@ -31,7 +31,7 @@ export function HomePage() {
 
   <GradualSpacing
       className="realtive font-display text-left
-      text-[8rem] md:text-[14rem]
+      text-[7.5rem]  lg:text-[13rem]
       ml-[0rem] md:ml-[-1rem]
       font-bold tracking-[-0.1em] text-gray-300  md:leading-[5rem] z-[10]"
       text="Saklani"

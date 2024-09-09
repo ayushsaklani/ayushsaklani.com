@@ -1,8 +1,8 @@
 import React from 'react';
-import Video from 'next-video';
 import BackgroundVideo from 'next-video/background-video';
+import { MediaComponentProps } from '@/types';
 
-const MediaComponent = ({ type, src, alt }) => {
+const MediaComponent: React.FC<MediaComponentProps> = ({ type, src, alt }) => {
   return (
     <div className="z-50 rounded-lg">
       {type === 'image' ? (

@@ -12,7 +12,6 @@ import {
 
 } from "@tabler/icons-react";
 
-import Image from "next/image";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",

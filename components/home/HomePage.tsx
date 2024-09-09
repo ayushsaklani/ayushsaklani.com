@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import React from "react";
 import { BackgroundBeams } from "../ui/BackgroundBeams";
 import GradualSpacing from "@/components/magicui/gradual-spacing";
@@ -15,7 +14,7 @@ export function HomePage() {
                   bg-green-100 w-full h-full
                   flex justify-center content-center
                   ">
-      <ImageHover src='' type='' alt='' />
+      <ImageHover src='/images/me.jpg' srcSmall="/images/me_small.jpg"  alt='photo' />
     </div>
 </div>
   <div className="absolute grid grid-cols-1 md:grid-cols-2  pointer-events-none 

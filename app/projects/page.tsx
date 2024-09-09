@@ -1,23 +1,23 @@
 "use client";
-import Image from "next/image";
 import React from "react";
 import { WobbleCard } from "@/components/ui/WobbleCard";
 import MediaComponent from "@/components/mediaComponent/MediaComponent";
-
+import { ProjectType } from "@/types";
 
 export default async function ProjectPage() {
 
      const endpoint = "https://strapi.saklanicloud.com";
 	
 
-    let data = await fetch(endpoint+'/api/projects?populate=*&sort=done_on:desc')
+    const data = await fetch(endpoint+'/api/projects?populate=*&sort=done_on:desc')
     let projects = await data.json()
     projects = projects.data
   console.log(projects);
   return (
     <div className="relative w-full grid grid-cols-1 gap-5 p-5">
-      {projects.map((project) => (
+      {projects.map((project:ProjectType) => (
         <WobbleCard
+        key={project.attributes.name}
         containerClassName=" text-zinc-200"
         className=""
       >

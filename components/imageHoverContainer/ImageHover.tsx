@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { imageList } from '@/data/imageHover';
 import Link from 'next/link';
 import { ImageHoverProps } from '@/types';
-import { FollowerPointerCard } from '../following-pointer/following-pointer';
+
 
 const ImageHover: React.FC<ImageHoverProps> = ({src, srcSmall, alt }) => {
   const [isHovered, setisHovered] = useState(false);

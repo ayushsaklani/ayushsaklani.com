@@ -5,6 +5,7 @@ import MediaComponent from "@/components/mediaComponent/MediaComponent";
 import HyperText from "../magicui/hyper-text";
 import { ProjectProps, URLList } from "@/types";
 import ShinyButton from "../magicui/shiny-button";
+import { FollowerPointerCard } from "../following-pointer/following-pointer";
 
 export default function ProjectCard({
     className,
@@ -14,6 +15,7 @@ export default function ProjectCard({
     project: ProjectProps;
 }) {
     return (
+        <FollowerPointerCard title={`[Check Out ${project.name}]` }>
         <Card className={className}>
             <div className="relative grid grid-cols-1 w-full ">
                 <div className="">
@@ -36,9 +38,9 @@ export default function ProjectCard({
                     <p> {project.description}</p>
 
                 </div>
-                <div className='w-full flex flex-row justify-between'>
+                <div className='w-full flex flex-row justify-between cursor-none '>
                     {project.url.map((url:URLList)=>(
-                        <a key={project.id} href={url.url} target="_blank" className="block w-full mx-1">
+                        <a key={project.id} href={url.url} target="_blank" className="block w-full mx-1 cursor-none ">
                          <ShinyButton className='bg-slate-300 w-full' text={url.name} />
                          </a>
                     ))}
@@ -48,5 +50,6 @@ export default function ProjectCard({
             </div>
 
         </Card>
+        </FollowerPointerCard>
     );
 };

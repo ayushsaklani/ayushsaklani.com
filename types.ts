@@ -8,19 +8,7 @@ export type imageListType = {
     attributes:imageAttributes;
   };
 
-  export type ProjectType = {
-    attributes: {
-      name: string;
-      cover: {
-        data: {
-          attributes: {
-            url: string;
-            mime: string;
-          };
-        };
-      };
-    };
-  };
+
 
   export type ImageHoverProps = {
     src: string;
@@ -32,4 +20,21 @@ export type imageListType = {
     type: string;
     src: string;
     alt: string;
+  };
+
+  export type URLList = {
+    name:string,
+    url:string,
+  }
+
+  export type ProjectProps={
+    id:number,
+    name:string,
+    tags:Array<string>,
+    media:string,
+    type:string,
+    date: string,
+    url:Array<URLList>,
+    description:string,
+
   };

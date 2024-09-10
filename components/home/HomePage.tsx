@@ -41,20 +41,21 @@ export function HomePage() {
     </div>
 </div>
   <div className="absolute grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 pointer-events-none 
-    bottom-[2rem] md:bottom-[7rem] lg:bottom-[9rem]
+    bottom-[1rem] md:bottom-[6rem] lg:bottom-[7rem]
     left-[1rem] md:left-[2rem] z-10
- ">
+   font-mangsi
+    ">
  <GradualSpacing
       className="realtive font-display text-left  
-      text-[7.5rem]  lg:text-[13rem] 
+      text-[7.5rem]  lg:text-[15rem] 
       mb-[-6rem] md:mb-[0rem]
-      font-bold tracking-[ -0.1em] text-gray-300  md:leading-[5rem] z-[11]"
+      font-bold tracking-[-0.1em] text-gray-300  md:leading-[5rem] z-[11]"
       text="Ayush"
   />
 
   <GradualSpacing
       className="realtive font-display text-left
-      text-[7.5rem]  lg:text-[13rem]
+      text-[7.5rem]  lg:text-[15rem]
       ml-[0rem] md:ml-[-1rem]
       font-bold tracking-[-0.1em] text-gray-300  md:leading-[5rem] z-[10]"
       text="Saklani"

@@ -60,7 +60,7 @@ const ImageHover: React.FC<ImageHoverProps> = ({src, srcSmall, alt }) => {
 
       className="z-[150] relative flex justify-center items-center mx-auto my-auto  overflow-hidden
       [--w-from:30rem] [--h-from:30rem] sm:[--w-from:35rem] md:[--h-from:40rem] 
-      [--w-to:20rem] [--h-to:22rem]   sm:[--w-to:25rem] md:[--h-to:27rem] 
+      [--w-to:20rem] [--h-to:21rem]   sm:[--w-to:25rem] md:[--h-to:27rem] 
       [--w-hover:32rem] sm:[--w-hover:32rem] md:[--w-hover:32rem] lg:[--w-hover:48rem] xl:[--w-hover:64rem]
       [--h-hover:15rem] sm:[--h-hover:18rem] md:[--h-hover:18rem] lg:[--h-hover:27rem] xl:[--h-hover:36rem]  
   "

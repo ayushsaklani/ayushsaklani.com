@@ -48,7 +48,7 @@ export function HomePage() {
       className="realtive font-display text-left  
       text-[7.5rem]  lg:text-[13rem] 
       mb-[-6rem] md:mb-[0rem]
-      font-bold tracking-[-0.1em] text-gray-300  md:leading-[5rem] z-[11]"
+      font-bold tracking-[ -0.1em] text-gray-300  md:leading-[5rem] z-[11]"
       text="Ayush"
   />
 

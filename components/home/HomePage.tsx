@@ -41,7 +41,7 @@ export function HomePage() {
     </div>
 </div>
   <div className="absolute grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 pointer-events-none 
-    bottom-[1rem] md:bottom-[7rem] lg:bottom-[9rem]
+    bottom-[2rem] md:bottom-[7rem] lg:bottom-[9rem]
     left-[1rem] md:left-[2rem] z-10
  ">
  <GradualSpacing

@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 
 // Define the type for mouse position
 interface MousePosition {
-  x: number | null;
-  y: number | null;
+  x: number ;
+  y: number ;
 }
 
 export default function useMousePosition() {
   // Use the MousePosition interface as the type for the state
-  const [mousePosition, setMousePosition] = useState<MousePosition>({ x: null, y: null });
+  const [mousePosition, setMousePosition] = useState<MousePosition>({ x: -100, y: -100 });
 
   useEffect(() => {
     // Define the type for the event as MouseEvent

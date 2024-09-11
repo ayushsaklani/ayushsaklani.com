@@ -4,6 +4,7 @@
  * Mobile navbar is better positioned at bottom right.
  **/
 'use client';
+import { useContext } from "react";
 import { cn } from "@/lib/utils";
 import { IconLayoutNavbarCollapse } from "@tabler/icons-react";
 import {
@@ -16,6 +17,7 @@ import {
 } from "framer-motion";
 import Link from "next/link";
 import { useRef, useState } from "react";
+import { MouseContext } from "@/app/context/mouseContext";
 
 export const FloatingDock = ({
   items,
@@ -25,6 +27,8 @@ export const FloatingDock = ({
   items: { title: string; icon: React.ReactNode; href: string ;target:string;}[];
   desktopClassName?: string;
   mobileClassName?: string;
+
+  
 }) => {
   return (
     <>
@@ -43,7 +47,9 @@ const FloatingDockMobile = ({
 }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className={cn("relative block md:hidden", className)}>
+    <div className={cn("relative block md:hidden", className)}
+    
+    >
       <AnimatePresence>
         {open && (
           <motion.div
@@ -100,10 +106,12 @@ const FloatingDockDesktop = ({
   className?: string;
 }) => {
   const mouseX = useMotionValue(Infinity);
+  const { cursorChangeHandler } = useContext(MouseContext);
   return (
     <motion.div
-      onMouseMove={(e) => mouseX.set(e.pageX)}
-      onMouseLeave={() => mouseX.set(Infinity)}
+      onMouseMove={(e) =>{ mouseX.set(e.pageX); cursorChangeHandler('anchorHover')}}
+      onMouseLeave={() =>{ mouseX.set(Infinity); cursorChangeHandler('')}}
+     
       className={cn(
         "mx-auto hidden md:flex h-16 gap-4 items-end  rounded-2xl bg-gray-50 dark:bg-neutral-900 px-4 pb-3",
         className

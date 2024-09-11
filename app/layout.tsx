@@ -12,6 +12,11 @@ import {
 
 } from "@tabler/icons-react";
 
+import MouseContextProvider from "./context/mouseContext";
+import CustomCursor from "@/components/cursor/CustomCursor";
+
+
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -99,6 +104,8 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}  ${mangsiSans.variable} 
       antialiased h-screen w-screen max-h-[calc(100dvh)] max-w-[calc(100dwh)] mx-auto bg-slate-900 text-slate-200`}
       >
+        <MouseContextProvider>
+        <CustomCursor/>
         <div  className="realtive h-full w-full max-w-[2000px] mx-auto ">
 
             {children}
@@ -109,6 +116,7 @@ export default function RootLayout({
             />
           </div>
         </div>
+        </MouseContextProvider>
       </body>
     </html>
   );

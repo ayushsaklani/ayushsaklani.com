@@ -5,11 +5,11 @@ import GradualSpacing from "@/components/magicui/gradual-spacing";
 import ImageHover from "@/components/imageHoverContainer/ImageHover";
 import RealTimeClock from "@/components/clock/RealTimeClock";
 
-
 export function HomePage() {
 
   const [windowWidth, setWindowWidth] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
+
 
   useEffect(() => {
 

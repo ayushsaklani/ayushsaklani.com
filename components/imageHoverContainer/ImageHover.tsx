@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { imageList } from '@/data/imageHover';
 import Link from 'next/link';
 import { ImageHoverProps } from '@/types';
+import { MouseContext } from '@/app/context/mouseContext';
 
 
 const ImageHover: React.FC<ImageHoverProps> = ({src, srcSmall, alt }) => {
   const [isHovered, setisHovered] = useState(false);
   const [index, setIndex] = useState(0);
   const imageLen = imageList.length;
+
+  const {cursorChangeHandler} = useContext(MouseContext);
+
   useEffect(() => {
     if (isHovered) {
       // Run your effect only when isHovered is true
@@ -29,8 +33,10 @@ const ImageHover: React.FC<ImageHoverProps> = ({src, srcSmall, alt }) => {
   return (
     <motion.div
 
-      onMouseEnter={() => { setisHovered(true); }}
-      onMouseLeave={() => { setisHovered(false); }}
+      onMouseEnter={() => { setisHovered(true); cursorChangeHandler("imageHover"); }}
+      onMouseLeave={() => { setisHovered(false);cursorChangeHandler(""); }}
+
+      onMouseDown={() => { setisHovered(false);cursorChangeHandler(""); }}
       onTouchStart={() => { setisHovered(true); }}
       onTouchEnd={() => { setisHovered(false); }}
 

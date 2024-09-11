@@ -23,6 +23,8 @@ const CustomCursor = () => {
       z-[2000] 
       pointer-events-none 
       inset-0
+      invisible
+      md:visible
     `;
 
     // Conditionally add the duration class
@@ -36,7 +38,8 @@ const CustomCursor = () => {
             <motion.div
                 style={{ left: `${x}px`, top: `${y}px` }}
                 className="fixed 
-                w-[1rem] h-[1rem] bg-yellow-300 rounded-full translate-x-[-50%] translate-y-[-50%] z-[2000] pointer-events-none inset-0"
+                w-[1rem] h-[1rem] bg-yellow-300 rounded-full translate-x-[-50%] translate-y-[-50%] z-[2000] pointer-events-none inset-0
+                invisible md:visible"
                 animate={getDotAnimation(cursorType)}
                 transition={{
                     duration: 0.5

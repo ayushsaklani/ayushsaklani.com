@@ -2,7 +2,9 @@
 import React from "react";
 import MediaComponent from "@/components/mediaComponent/MediaComponent";
 import {imageListType} from '@/types';
-export default async function CameraPage() {
+import { Suspense } from 'react';
+
+export async function CameraImages() {
 
      const endpoint = "https://strapi.saklanicloud.com";
 	
@@ -29,4 +31,12 @@ export default async function CameraPage() {
 
     </div>
   );
+}
+export default function CameraPage() {
+  return (
+      <Suspense fallback={<p>Loading Images</p>}>
+        <CameraImages/>
+      </Suspense>
+
+  )
 }

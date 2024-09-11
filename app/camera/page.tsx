@@ -4,7 +4,7 @@ import MediaComponent from "@/components/mediaComponent/MediaComponent";
 import {imageListType} from '@/types';
 import { Suspense } from 'react';
 
-export async function CameraImages() {
+async function CameraImages() {
 
      const endpoint = "https://strapi.saklanicloud.com";
 	

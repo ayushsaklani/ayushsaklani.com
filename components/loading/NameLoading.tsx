@@ -57,7 +57,7 @@ export default function NameLoading({setIsLoading}:NameLoadingProps) {
 "M715.836 239.868C717.893 241.969 713.262 248.433 719.362 248.433C720.332 248.433 721.602 248.711 722.385 247.929C728.654 241.66 711.002 234.932 715.836 239.868Z"
   ];
   return (
-    <div className=" realtive w-full h-full flex justify-center items-center content-center z-100 stroke-yellow-400">
+    <div className=" absolute w-full h-full flex justify-center items-center content-center z-[2000] stroke-yellow-400 ">
       {/* Big Screen */}
       <motion.svg
         strokeMiterlimit="0"

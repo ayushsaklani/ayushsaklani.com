@@ -3,9 +3,11 @@ import React from "react";
 import MediaComponent from "@/components/mediaComponent/MediaComponent";
 import {imageListType} from '@/types';
 import { Suspense } from 'react';
+import PreLoader from "@/components/loading/PreLoader";
+
+
 
 async function CameraImages() {
-
      const endpoint = "https://strapi.saklanicloud.com";
 	
 
@@ -34,7 +36,7 @@ async function CameraImages() {
 }
 export default function CameraPage() {
   return (
-      <Suspense fallback={<p>Loading Images</p>}>
+      <Suspense fallback={<PreLoader/>}>
         <CameraImages/>
       </Suspense>
 

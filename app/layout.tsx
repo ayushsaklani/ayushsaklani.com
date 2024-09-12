@@ -111,7 +111,7 @@ export default function RootLayout({
             {children}
           <div className="fixed bottom-8  flex items-center justify-center mx-auto w-full z-[1000]">
              <FloatingDock
-              mobileClassName="" // only for demo, remove for production
+              
               items={links}
             />
           </div>

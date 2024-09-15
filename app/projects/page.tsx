@@ -1,20 +1,71 @@
-"use client";
 import React from "react";
 
-import { ProjectList } from "@/data/projects";
-import ProjectCard from "@/components/projectCard/ProjectCard";
-import { ProjectProps } from "@/types";
+import { CMS_ENDPOINT, extractProjectTags, ProjectTagProps } from "@/lib/utils";
+import { ProjectProps } from "./masonicProjects";
+import { UrlProps } from "@/types";
+import dynamic from "next/dynamic";
+const MasonicProject = dynamic(() => import('./masonicProjectskill'), {
+  ssr: false,
+})
 
-export default function ProjectPage() {
+
+export const revalidate = 60*15
+
+interface ProjectAttributes{
+    cover:{
+      data:{
+        attributes:{
+          url:string,
+          mime:string,
+        }
+      }
+    },
+
+    name:string,
+    date:string,
+    description:string,
+    width:number,
+    height:number,
+    urls:Array<UrlProps>
+    project_tags:{
+      data:Array<ProjectTagProps>}
+
+}
+
+interface ProjectData{
+  id:number,
+  attributes:ProjectAttributes;
+}
+
+async  function Projects() {
+
+  const data = await fetch(CMS_ENDPOINT+'/api/projects?populate=*&sort=createdAt:desc')
+    let projects = await data.json()
+    
+
+    projects = (projects.data).map((project:ProjectData): ProjectProps=>({
+      id:project.id,
+      src:CMS_ENDPOINT+project.attributes.cover.data.attributes.url,
+      name:project.attributes.name,
+      date:project.attributes.date,
+      description:project.attributes.description,
+      type:project.attributes.cover.data.attributes.mime.split('/')[0],
+      width:project.attributes.width|0,
+      height:project.attributes.height|0,
+      urls:project.attributes.urls,
+      tags:extractProjectTags(project.attributes.project_tags.data)
+    }));
 
   return (
-    <div className="relative w-full grid grid-cols-1 md:grid-cols-2 gap-5 px-5 pt-10 mt-10 pb-[8rem]">
-      {ProjectList.map((project:ProjectProps) => (
-        <a key={project.id} href={project.url[0].url} target="_blank" className="">
-         <ProjectCard  className="w-full bg-slate-800 p-2 text-slate-300" project={project}/>
-        </a>    
-      ))}
-
+    <div className="relative w-full px-5 pt-10 mt-10 pb-[8rem] ">
+      <MasonicProject projects={projects}/>
+     
     </div>
+  );
+}
+
+export default function ProjectPage(){
+  return (
+    <Projects/>
   );
 }

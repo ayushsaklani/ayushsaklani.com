@@ -1,14 +1,17 @@
 import React from 'react';
 import BackgroundVideo from 'next-video/background-video';
 import { MediaComponentProps } from '@/types';
+import Image from 'next/image';
 
-const MediaComponent: React.FC<MediaComponentProps> = ({ type, src, alt }) => {
+const MediaComponent: React.FC<MediaComponentProps> = ({ type, src, alt ,width=500,height=500,blur=''}) => {
   return (
-    <div className="z-50 rounded-lg">
+    <div className="relative  z-[300] rounded-lg">
       {type === 'image' ? (
-        <img src={src} alt={alt} style={{ maxWidth: '100%', height: 'auto' }} />
+        <Image width={width} height={height} src={src} alt={alt} placeholder='blur' blurDataURL={blur} />
       ) : type === 'video' ? (
+       
         <BackgroundVideo src={src}></BackgroundVideo>
+  
       ) : (
         <p>Invalid media type</p>
       )}

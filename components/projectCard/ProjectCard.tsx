@@ -34,19 +34,19 @@ export default function ProjectCard({
                         blur=''
                     />
                 </div>
-                <div className='p-3 flex flex-row  justify-between item-center content-center w-full text-[0.7rem] font-bold'>
+                <div className='p-3 flex flex-row flex-wrap justify-between item-center content-center w-full text-[0.7rem] font-bold'>
                     <div className="relative flex flex-col flex-wrap ">
-                        <div className="text-[1.3rem]"> <HyperText text={project.name} /></div>
+                        <div className=" text-[1.1rem] md:text-[1.3rem]"> <HyperText text={project.name} /></div>
                     </div>
 
 
                     <div className=" w-full text-[1rem] font-normal flex justify-end">{project.date}</div>
                 </div>
 
-                <div className="px-3 flex flex-row text-[0.9rem] font-normal justify-start">
+                <div className="px-3 flex flex-row flex-wrap text-[0.9rem] font-normal justify-start">
                     {
                         project.tags.map((tag: string) => (
-                            <span className="flex justify-center items-center content-center border px-[0.25rem] block mr-1 rounded-sm border-slate-500" key={tag}>
+                            <span className="flex justify-center items-center content-center border px-[0.25rem] block mr-1 mt-2 rounded-sm border-slate-500" key={tag}>
                                 {tag}
                             </span>
                         ))

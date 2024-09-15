@@ -4,7 +4,7 @@ import { CMS_ENDPOINT, extractProjectTags, ProjectTagProps } from "@/lib/utils";
 import { ProjectProps } from "./masonicProjects";
 import { UrlProps } from "@/types";
 import dynamic from "next/dynamic";
-const MasonicProject = dynamic(() => import('./masonicProjectskill'), {
+const MasonicProject = dynamic(() => import('./masonicProjects'), {
   ssr: false,
 })
 

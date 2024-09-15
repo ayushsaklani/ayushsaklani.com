@@ -28,14 +28,12 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-const mangsiSans = localFont({
-  src: "./fonts/Mangsi.otf",
-  variable: "--font-mangsi",
+
+const stadioSans = localFont({
+  src: "./fonts/Stadio-Now.ttf",
+  variable: "--font-stadio",
   weight: "100 900",
 });
-
-
-
 
 
 export const metadata: Metadata = {
@@ -101,7 +99,7 @@ export default function RootLayout({
   ];
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}  ${mangsiSans.variable} 
+      <body className={`${geistSans.variable} ${geistMono.variable} ${stadioSans.variable}
       antialiased h-screen w-screen max-h-[calc(100dvh)] max-w-[calc(100dwh)] mx-auto bg-slate-900 text-slate-200`}
       >
         <MouseContextProvider>

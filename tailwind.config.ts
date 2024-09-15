@@ -11,7 +11,9 @@ const config = {
   prefix: "",
   theme: {
     fontFamily: {
-      mangsi: ['var(--font-mangsi)'],
+      stadio: ['var(--font-stadio)'],
+
+
 
       
 

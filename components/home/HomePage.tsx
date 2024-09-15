@@ -41,9 +41,9 @@ export function HomePage() {
     </div>
 </div>
   <div className="absolute grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 pointer-events-none 
-    bottom-[1rem] md:bottom-[6rem] lg:bottom-[7rem]
+    bottom-[2rem] md:bottom-[6rem] lg:bottom-[10rem]
     left-[1rem] md:left-[2rem] z-10
-   font-mangsi
+   font-stadio
     ">
  <GradualSpacing
       className="realtive font-display text-left  
@@ -56,7 +56,7 @@ export function HomePage() {
   <GradualSpacing
       className="realtive font-display text-left
       text-[7.5rem]  lg:text-[15rem]
-      ml-[0rem] md:ml-[-1rem]
+      ml-[0rem] md:ml-[1rem]
       font-bold tracking-[-0.1em] text-gray-300  md:leading-[5rem] z-[10]"
       text="Saklani"
   />
@@ -65,11 +65,11 @@ export function HomePage() {
  
   </div>
    {/* WxH */}
-   <div className="absolute bottom-8 left-8 z-[250] text-[1rem]">
+   <div className="absolute bottom-5 left-5 z-[250] text-[1rem]">
     {windowWidth+"X"+ windowHeight}
   </div>
   {/* Time  */}
-  <div className="absolute top-8 left-8 z-[250] text-[1rem]">
+  <div className="absolute top-5 left-5 z-[250] text-[1rem]">
     <RealTimeClock/>
   </div>
   <BackgroundBeams className="w-full h-full z-0"/>

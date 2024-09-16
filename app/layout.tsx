@@ -14,6 +14,9 @@ import {
 
 import MouseContextProvider from "./context/mouseContext";
 import CustomCursor from "@/components/cursor/CustomCursor";
+import { GoogleAnalytics } from '@next/third-parties/google';
+
+
 
 
 
@@ -41,6 +44,8 @@ export const metadata: Metadata = {
   description: "Personal Portfolio of Ayush Saklani",
 };
 
+
+const GTAG = process.env.GAID || '';
 
 export default function RootLayout({
   children,
@@ -115,6 +120,7 @@ export default function RootLayout({
           </div>
         </div>
         </MouseContextProvider>
+        <GoogleAnalytics gaId={GTAG}/>
       </body>
     </html>
   );

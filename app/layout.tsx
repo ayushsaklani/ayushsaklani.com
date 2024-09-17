@@ -112,7 +112,7 @@ export default function RootLayout({
         <div  className="realtive h-full w-full max-w-[2000px] mx-auto ">
 
             {children}
-          <div className="fixed bottom-8  flex items-center justify-center mx-auto w-full z-[1000]">
+          <div className="fixed bottom-8  flex items-center justify-center mx-auto w-full max-w-[2000px]  z-[1000]">
              <FloatingDock
               
               items={links}

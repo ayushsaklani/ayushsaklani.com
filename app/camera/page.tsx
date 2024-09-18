@@ -9,7 +9,7 @@ const MasonicCamera = dynamic(() => import('./masonicCamera'), {
   ssr: false,
 })
 
-export const revalidate = 3600*12;
+export const revalidate = 3600*6;
 
 interface ImageAttributes {
   id: number;

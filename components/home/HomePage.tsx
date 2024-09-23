@@ -67,8 +67,8 @@ export function HomePage() {
  
   </div>
    {/* WxH */}
-   <div className="absolute  bottom-5 left-1 z-[250] text-[1rem]">
-    {windowWidth+"X"+ windowHeight}
+   <div className="absolute invisible sm:visible  bottom-5 left-5 z-[250] text-[1rem]">
+    {windowWidth+"x"+ windowHeight}
   </div>
   {/* Time  */}
   <div className="absolute top-5 left-5 z-[250] text-[1rem]">

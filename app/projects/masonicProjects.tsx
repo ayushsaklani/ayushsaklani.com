@@ -14,6 +14,7 @@ export type ProjectProps = {
     height:number,
     urls: Array<UrlProps>,
     tags:Array<string>,
+    placeholder:string,
 
 }
 

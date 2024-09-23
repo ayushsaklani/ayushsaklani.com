@@ -15,10 +15,15 @@ const RealTimeClock = () => {
 
   // Formatting the time as HH:MM:SS
   const formattedTime = currentTime.toLocaleTimeString('en-US',{timeZone:'America/Los_Angeles'});
+  const currTime = formattedTime.split(' ');
 
   return (
-      <p>{formattedTime}</p>
-  );
+<div className='flex flex-row items-center'>
+  <p className='w-[75px] text-center'>{currTime[0]}</p>
+  <p className=''>{currTime[1]}</p> 
+</div>
+
+    );
 };
 
 export default RealTimeClock;

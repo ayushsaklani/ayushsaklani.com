@@ -17,6 +17,9 @@ interface ProjectAttributes{
         attributes:{
           url:string,
           mime:string,
+          placeholder:string,
+          width:number,
+          height:number,
         }
       }
     },
@@ -43,18 +46,26 @@ async  function Projects() {
     let projects = await data.json()
     
 
-    projects = (projects.data).map((project:ProjectData): ProjectProps=>({
-      id:project.id,
-      src:CMS_ENDPOINT+project.attributes.cover.data.attributes.url,
-      name:project.attributes.name,
-      date:project.attributes.date,
-      description:project.attributes.description,
-      type:project.attributes.cover.data.attributes.mime.split('/')[0],
-      width:project.attributes.width|0,
-      height:project.attributes.height|0,
-      urls:project.attributes.urls,
-      tags:extractProjectTags(project.attributes.project_tags.data)
-    }));
+    projects = (projects.data).map((project: ProjectData): ProjectProps => {
+      const type = project.attributes.cover.data.attributes.mime.split('/')[0];
+      const cover = project.attributes.cover.data.attributes
+    
+      return {
+        id: project.id,
+        src: CMS_ENDPOINT + cover.url,
+        name: project.attributes.name,
+        date: project.attributes.date,
+        description: project.attributes.description,
+        type: type, // Reusing the extracted type
+        width: cover.width || 0,
+        height: cover.height || 0,
+        urls: project.attributes.urls,
+        tags: extractProjectTags(project.attributes.project_tags.data),
+        placeholder: type === 'image' 
+                     ? cover.placeholder
+                     : ''
+      };
+    });
 
   return (
     <div className="relative w-full px-5 pt-10 mt-10 pb-[8rem] ">

@@ -31,7 +31,7 @@ export default function ProjectCard({
                         type={project.type}
                         width={project.width}
                         height={project.height}
-                        blur=''
+                        blur={project.placeholder}
                     />
                 </div>
                 <div className='p-3 flex flex-row flex-wrap justify-between item-center content-center w-full text-[0.7rem] font-bold'>

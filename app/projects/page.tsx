@@ -2,7 +2,7 @@ import React from "react";
 
 import { CMS_ENDPOINT, extractProjectTags, ProjectTagProps } from "@/lib/utils";
 import { ProjectProps } from "./masonicProjects";
-import { UrlProps } from "@/types";
+import { CloudinaryProviderMetadata, UrlProps } from "@/types";
 import dynamic from "next/dynamic";
 const MasonicProject = dynamic(() => import('./masonicProjects'), {
   ssr: false,
@@ -11,17 +11,14 @@ const MasonicProject = dynamic(() => import('./masonicProjects'), {
 
 export const revalidate = 60*15
 
-interface ProjectAttributes{
+interface ProjectData{
+  id:number,
     cover:{
-      data:{
-        attributes:{
-          url:string,
-          mime:string,
-          placeholder:string,
-          width:number,
-          height:number,
-        }
-      }
+      provider_metadata: CloudinaryProviderMetadata
+      mime:string,
+      placeholder:string,
+      width:number,
+      height:number,
     },
 
     name:string,
@@ -30,15 +27,11 @@ interface ProjectAttributes{
     width:number,
     height:number,
     urls:Array<UrlProps>
-    project_tags:{
-      data:Array<ProjectTagProps>}
+    project_tags:Array<ProjectTagProps>
 
 }
 
-interface ProjectData{
-  id:number,
-  attributes:ProjectAttributes;
-}
+
 
 async  function Projects() {
 
@@ -47,23 +40,20 @@ async  function Projects() {
     
 
     projects = (projects.data).map((project: ProjectData): ProjectProps => {
-      const type = project.attributes.cover.data.attributes.mime.split('/')[0];
-      const cover = project.attributes.cover.data.attributes
+      const type = project.cover.mime.split('/')[0];
+  
     
       return {
         id: project.id,
-        src: CMS_ENDPOINT + cover.url,
-        name: project.attributes.name,
-        date: project.attributes.date,
-        description: project.attributes.description,
+        src: project.cover.provider_metadata.public_id,
+        name: project.name,
+        date: project.date,
+        description: project.description,
         type: type, // Reusing the extracted type
-        width: cover.width || 0,
-        height: cover.height || 0,
-        urls: project.attributes.urls,
-        tags: extractProjectTags(project.attributes.project_tags.data),
-        placeholder: type === 'image' 
-                     ? cover.placeholder
-                     : ''
+        width: project.cover.width || 0,
+        height: project.cover.height || 0,
+        urls: project.urls,
+        tags: extractProjectTags(project.project_tags),
       };
     });
 

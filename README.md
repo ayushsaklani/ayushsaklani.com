@@ -12,6 +12,13 @@ yarn dev
 pnpm dev
 # or
 bun dev
+
+```
+
+## Environment File
+```bash
+CMS_ENDPOINT=http://localhost:1338
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="<Your Cloud Name>" # for cloudinary
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

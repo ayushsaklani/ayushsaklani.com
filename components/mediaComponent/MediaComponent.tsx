@@ -1,17 +1,28 @@
 import React from 'react';
-import BackgroundVideo from 'next-video/background-video';
 import { MediaComponentProps } from '@/types';
-import Image from 'next/image';
 
-const MediaComponent: React.FC<MediaComponentProps> = ({ type, src, alt ,width=500,height=500,blur=''}) => {
+import { CldImage,CldVideoPlayer } from 'next-cloudinary';
+import 'next-cloudinary/dist/cld-video-player.css';
+
+
+const MediaComponent: React.FC<MediaComponentProps> = ({ type, src, alt ,width=500,height=500}) => {
   return (
     <div className="relative  z-[300] rounded-lg">
       {type === 'image' ? (
-        <Image width={width} height={height} src={src} alt={alt} placeholder='blur' blurDataURL={blur} />
+        <CldImage width={width} height={height} src={src} alt={alt}
+      />
       ) : type === 'video' ? (
-       
-        <BackgroundVideo src={src}></BackgroundVideo>
-  
+        <CldVideoPlayer
+        width="1920"
+        height="1080"
+        muted
+        loop
+        playsinline
+        autoplay
+        controls={false}
+        src={src}
+      />
+      
       ) : (
         <p>Invalid media type</p>
       )}

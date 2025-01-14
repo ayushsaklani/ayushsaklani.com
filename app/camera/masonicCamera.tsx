@@ -8,8 +8,7 @@ export type CameraImageProps = {
     name:string,
     type:string,
     width:number,
-    height:number,
-    blur:string
+    height:number
 
 }
 interface MasonicCameraProps {
@@ -50,7 +49,6 @@ function MasonicCameraItems({ index, width, data }:{
                     type={data.type}
                     width={data.width}
                     height={data.height}
-                    blur={data.blur}
                 />
             </div>
         </div>

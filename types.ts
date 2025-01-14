@@ -25,6 +25,11 @@ export type UrlProps={
     alt: string;
     width:number;
     height:number;
-    blur:string;
   };
+
+export type CloudinaryProviderMetadata ={
+    public_id:string;
+    resource_type: string
+  }
+  
 

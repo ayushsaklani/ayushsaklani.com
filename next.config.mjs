@@ -12,11 +12,7 @@ const nextConfig = {
         port: '1338',
         pathname: '/uploads/**',
       },
-      {
-        protocol: 'https',
-        hostname: 'strapi.saklanicloud.com',
-        pathname: '/uploads/**',
-      },
+
     ],
   },
     webpack(config) {

@@ -2,7 +2,7 @@ import React from "react";
 
 import { CMS_ENDPOINT, extractProjectTags, ProjectTagProps } from "@/lib/utils";
 import { ProjectProps } from "./masonicProjects";
-import { CloudinaryProviderMetadata, UrlProps } from "@/types";
+import { UrlProps } from "@/types";
 import dynamic from "next/dynamic";
 const MasonicProject = dynamic(() => import('./masonicProjects'), {
   ssr: false,

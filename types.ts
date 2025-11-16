@@ -34,7 +34,10 @@ export type UrlProps={
 
 export type CloudinaryProviderMetadata ={
     public_id:string;
-    resource_type: string
+    resource_type: string;
+    name: string;
+    width: number;
+    height: number;
   }
   
 

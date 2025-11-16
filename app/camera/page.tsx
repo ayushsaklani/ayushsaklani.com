@@ -14,28 +14,39 @@ export const revalidate = 3600*6;
 
 interface ImageData {
   id: number;
-  url: string;
-  name: string;
-  mime: string;
-  width: number;
-  height: number;
-  provider_metadata: CloudinaryProviderMetadata
+  media: CloudinaryProviderMetadata
 }
 
 async function CameraImages() {
 
-    const data = await fetch(CMS_ENDPOINT+'/api/photus?populate=*&sort=createdAt:desc')
-    let images = await data.json()
-    images = images.data[0].media 
+    const data = await fetch(CMS_ENDPOINT+'', {
+      method:"POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        query: `query ImageGallery {
+            imageGallery(where: {id: "cmi291k8erauz0dn2nrrdd4lz"}, stage: PUBLISHED) {
+              gallery {
+              id
+              media
+              }
+            }
+          }`,
+        }),
+
+    });
+    let images = await data.json();
+    images = images.data.imageGallery.gallery;
+    
     images = images.map((image:ImageData) :CameraImageProps =>({
 
       id:image.id,
-      src:image.provider_metadata.public_id,
-      name:image.name,
-      type:image.mime.split('/')[0],
-      width:image.width,
-      height:image.height,
-
+      src:image.media.public_id,
+      name:image.media.name,
+      type:image.media.resource_type,
+      width:image.media.width,
+      height:image.media.height,
     }));
 
 

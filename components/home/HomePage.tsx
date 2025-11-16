@@ -2,8 +2,8 @@
 import React,{useState,useEffect} from "react";
 import { BackgroundBeams } from "../ui/BackgroundBeams";
 import GradualSpacing from "@/components/magicui/gradual-spacing";
-import ImageHover from "@/components/imageHoverContainer/ImageHover";
 import RealTimeClock from "@/components/clock/RealTimeClock";
+import ImageSketchGlitch from "../imageSketchGlitchContainer/ImageSketchGlitch";
 
 export function HomePage() {
 
@@ -37,7 +37,7 @@ export function HomePage() {
                    w-full h-full
                   flex justify-center content-center
                   ">
-      <ImageHover src='/images/me.jpg' srcSmall="/images/me_small.jpg"  alt='photo' />
+      <ImageSketchGlitch src='/images/me.jpg' alt='photo' />
     </div>
 
 

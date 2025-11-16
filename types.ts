@@ -19,6 +19,11 @@ export type UrlProps={
     alt: string;
   };
 
+  export type ImageSketchGlitchProps = {
+    src: string;
+    alt: string;
+  };
+
   export type MediaComponentProps = {
     type: string;
     src: string;

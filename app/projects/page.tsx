@@ -42,7 +42,7 @@ async  function Projects() {
     },
     body: JSON.stringify({
       query: `query Projects {
-        projects(stage: PUBLISHED) {
+        projects(orderBy: publishedAt_DESC, stage: PUBLISHED) {
           cover
           date
           description

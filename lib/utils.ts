@@ -9,15 +9,13 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export type ProjectTagProps =  {
-id:string,
-  tag:string,
-  createdAt:string,
+  id:string,
+  name:string,
   updatedAt:string,
-  publishedAt:string
 }
 
 export function extractProjectTags(projectTags:Array<ProjectTagProps>){
 
-  return projectTags.map((projectTag)=>projectTag.tag);
+  return projectTags.map((projectTag)=>projectTag.name);
 
 }

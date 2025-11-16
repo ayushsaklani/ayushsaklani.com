@@ -45,8 +45,7 @@ export function HomePage() {
 <div className="absolute  mx-auto  grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 pointer-events-none 
     bottom-[2rem] md:bottom-[6rem] lg:bottom-[10rem]
     left-[1rem] md:left-[2rem] xl:left-[5rem]  z-10
-   font-stadio
-    ">
+   font-gradualSpacing">
  <GradualSpacing
       className="realtive font-display text-left  
       text-[7.5rem]  lg:text-[13.5rem] 

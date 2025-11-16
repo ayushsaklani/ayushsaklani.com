@@ -12,6 +12,8 @@ const config = {
   theme: {
     fontFamily: {
       stadio: ['var(--font-stadio)'],
+      afronaut: ['var(--font-afronaut)'],
+      gradualSpacing: ['var(--font-gradualSpacing)'],
 
 
 

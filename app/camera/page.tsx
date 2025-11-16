@@ -4,7 +4,6 @@ import React from "react";
 import { CMS_ENDPOINT } from "@/lib/utils";
 import { CameraImageProps } from "./masonicCamera";
 import dynamic from "next/dynamic";
-import { CloudinaryProviderMetadata } from "@/types";
 
 const MasonicCamera = dynamic(() => import('./masonicCamera'), {
   ssr: false,
@@ -13,29 +12,42 @@ const MasonicCamera = dynamic(() => import('./masonicCamera'), {
 export const revalidate = 3600*6;
 
 interface ImageData {
-  id: number;
-  url: string;
+  id: string,
+  public_id:string;
+  resource_type: string;
   name: string;
-  mime: string;
   width: number;
   height: number;
-  provider_metadata: CloudinaryProviderMetadata
 }
 
 async function CameraImages() {
 
-    const data = await fetch(CMS_ENDPOINT+'/api/photus?populate=*&sort=createdAt:desc')
-    let images = await data.json()
-    images = images.data[0].media 
-    images = images.map((image:ImageData) :CameraImageProps =>({
+    const data = await fetch(CMS_ENDPOINT+'', {
+      method:"POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        query: `query ImageGallery {
+            imageGallery(where: {id: "cmi291k8erauz0dn2nrrdd4lz"}, stage: PUBLISHED) {
+              gallery {
+              media
+              }
+            }
+          }`,
+        }),
 
+    });
+    let images = await data.json();
+    images = images.data.imageGallery.gallery[0].media;
+    
+    images = images.map((image:ImageData) :CameraImageProps =>({
       id:image.id,
-      src:image.provider_metadata.public_id,
+      src:image.public_id,
       name:image.name,
-      type:image.mime.split('/')[0],
+      type:image.resource_type,
       width:image.width,
       height:image.height,
-
     }));
 
 
@@ -44,6 +56,7 @@ async function CameraImages() {
   return (
     <div className="relative w-full px-5 pt-10 pb-[8rem] mt-10 mb-10">
      <MasonicCamera images={images} />
+     {/* <p>{JSON.stringify(images)}</p> */}
     </div>
   );
 }

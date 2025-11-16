@@ -38,6 +38,17 @@ const stadioSans = localFont({
   weight: "100 900",
 });
 
+const afronautSans = localFont({
+  src : "./fonts/Afronaut-Regular.otf",
+  variable: "--font-afronaut",
+  weight: "100 900",
+});
+
+const gradualSpacingFont = localFont({
+  src : "./fonts/quiglet-free.otf",
+  variable: "--font-gradualSpacing",
+  weight: "100 900",
+});
 
 export const metadata: Metadata = {
   title: "Ayush Saklani",
@@ -104,7 +115,7 @@ export default function RootLayout({
   ];
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${stadioSans.variable}
+      <body className={`${geistSans.variable} ${geistMono.variable} ${stadioSans.variable} ${afronautSans.variable} ${gradualSpacingFont.variable}
       antialiased h-screen w-screen max-h-[calc(100dvh)] max-w-[calc(100dwh)] mx-auto bg-slate-900 text-slate-200`}
       >
         <MouseContextProvider>

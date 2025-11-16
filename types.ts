@@ -19,6 +19,11 @@ export type UrlProps={
     alt: string;
   };
 
+  export type ImageSketchGlitchProps = {
+    src: string;
+    alt: string;
+  };
+
   export type MediaComponentProps = {
     type: string;
     src: string;
@@ -26,10 +31,5 @@ export type UrlProps={
     width:number;
     height:number;
   };
-
-export type CloudinaryProviderMetadata ={
-    public_id:string;
-    resource_type: string
-  }
   
 

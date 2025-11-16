@@ -3,7 +3,7 @@ import MediaComponent from "@/components/mediaComponent/MediaComponent";
 import { Masonry } from "masonic";
 
 export type CameraImageProps = {
-    id:number,
+    id:string,
     src:string,
     name:string,
     type:string,

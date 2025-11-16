@@ -9,28 +9,6 @@ const CustomCursor = () => {
 
     const { x, y } = useMousePosition();
     const { cursorType } = useContext(MouseContext);
-
-    const borderColor = 'border-yellow-300';
-    const baseClasses = `
-      fixed 
-      w-[4rem] 
-      h-[4rem] 
-      border-2 
-      ${borderColor} 
-      rounded-full 
-      translate-x-[-50%] 
-      translate-y-[-50%] 
-      z-[2000] 
-      pointer-events-none 
-      inset-0
-      invisible
-      md:visible
-    `;
-
-    // Conditionally add the duration class
-    const durationClass = cursorType === '' ? 'duration-100 ease-out' : '';
-
-
     return (
         <>
 
@@ -48,18 +26,6 @@ const CustomCursor = () => {
             >
                 <CursorsComponent status={cursorType} />
             </motion.div>
-
-
-            {/* Ring */}
-
-            <motion.div
-                style={{ left: `${x}px`, top: `${y}px` }}
-                className={`${baseClasses} ${durationClass}`}
-                animate={getRingAnimation(cursorType)}
-                transition={{
-                    duration: 0.5
-                }}
-            ></motion.div>
 
         </>
     );
@@ -81,18 +47,6 @@ const getDotAnimation = (cursorType: string) => {
             return { width: '1rem', height: '1rem' };
     }
 };
-const getRingAnimation = (cursorType: string) => {
-    switch (cursorType) {
-        case 'imageHover':
-            return { width: '4rem', height: '4rem' };
-        case 'anchorHover':
-            return { width: '2rem', height: '2rem' };
-        // Add other cases if needed
-        default:
-            return { width: '4rem', height: '4rem' };
-    }
-};
-
 
 const CursorsComponent: React.FC<Props> = ({ status }) => {
     const renderStatus = () => {

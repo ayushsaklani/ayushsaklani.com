@@ -2,7 +2,7 @@ import React from "react";
 
 import { CMS_ENDPOINT, extractProjectTags, ProjectTagProps } from "@/lib/utils";
 import { ProjectProps } from "./masonicProjects";
-import { CloudinaryProviderMetadata, UrlProps } from "@/types";
+import { UrlProps } from "@/types";
 import dynamic from "next/dynamic";
 const MasonicProject = dynamic(() => import('./masonicProjects'), {
   ssr: false,
@@ -14,38 +14,65 @@ export const revalidate = 60*15
 interface ProjectData{
   id:number,
     cover:{
-      provider_metadata: CloudinaryProviderMetadata
+      public_id: string,
+      resource_type: string,
       mime:string,
       placeholder:string,
       width:number,
       height:number,
     },
-
     name:string,
     date:string,
     description:string,
     width:number,
     height:number,
     urls:Array<UrlProps>
-    project_tags:Array<ProjectTagProps>
+    tags:Array<ProjectTagProps>
 
 }
 
 
 
-async  function Projects() {
+async  function Projects() {     
 
-  const data = await fetch(CMS_ENDPOINT+'/api/projects?populate=*&sort=createdAt:desc')
+  const data = await fetch(CMS_ENDPOINT+"", {
+    method:"POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      query: `query Projects {
+        projects(orderBy: publishedAt_DESC, stage: PUBLISHED) {
+          cover
+          date
+          description
+          id
+          name
+          urls {
+            id
+            name
+            src
+          }
+          tags {
+            name
+            id
+            updatedAt
+          }
+        }
+      }`,
+    }),
+
+  });
     let projects = await data.json()
     
 
-    projects = (projects.data).map((project: ProjectData): ProjectProps => {
-      const type = project.cover.mime.split('/')[0];
+    projects = (projects.data.projects).map((project: ProjectData): ProjectProps => {
+      const type = project.cover.resource_type;
   
     
       return {
         id: project.id,
-        src: project.cover.provider_metadata.public_id,
+        src: project.cover.public_id,
         name: project.name,
         date: project.date,
         description: project.description,
@@ -53,7 +80,7 @@ async  function Projects() {
         width: project.cover.width || 0,
         height: project.cover.height || 0,
         urls: project.urls,
-        tags: extractProjectTags(project.project_tags),
+        tags: extractProjectTags(project.tags),
       };
     });
 
